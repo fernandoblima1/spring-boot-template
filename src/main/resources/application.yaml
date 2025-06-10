@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: spring-template
+  profiles:
+    active: default
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:your-email@gmail.com}
+    password: ${MAIL_PASSWORD:your-app-password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    
+allowed:
+  origins: ${ALLOWED_ORIGINS:http://localhost:3000}
+  methods: ${ALLOWED_METHODS:GET, POST, PUT, DELETE, OPTIONS}
+
+environment: ${ENVIRONMENT:dev}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+    tags:
+      application: "@project.artifactId@"
+  endpoint:
+    health:
+      show-details: always
+  prometheus:
+    metrics:
+      export:
+        enabled: "true"
+
+jwt:
+  secret: ${JWT_SECRET:secret}
+  expiration_time_in_millis: ${JWT_EXPIRATION_TIME_IN_MILLIS:3600000} # 1 hora por padrão
+
+app:
+  frontend:
+    url: ${FRONTEND_URL:http://localhost:3000}

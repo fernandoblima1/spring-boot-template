@@ -1,7 +1,5 @@
 package com.heynet.spring_template.models.entities;
 
-import java.util.UUID;
-
 import com.heynet.spring_template.models.dtos.endereco.EnderecoDTO;
 import com.heynet.spring_template.models.enums.UF;
 
@@ -29,8 +27,8 @@ import lombok.NoArgsConstructor;
 public class Endereco extends AuditableEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private UUID id;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
   @Column(name = "cep")
   private String cep;

@@ -1,5 +1,6 @@
 package com.heynet.spring_template.models.dtos.endereco;
 
+import com.heynet.spring_template.models.entities.Endereco;
 import com.heynet.spring_template.models.enums.UF;
 
 import jakarta.validation.constraints.NotBlank;
@@ -21,7 +22,6 @@ public class EnderecoRequestDTO {
   @NotBlank(message = "O número é obrigatório")
   private String numero;
 
-  @NotBlank(message = "O complemento é obrigatório")
   private String complemento;
 
   @NotBlank(message = "O bairro é obrigatório")
@@ -30,7 +30,21 @@ public class EnderecoRequestDTO {
   @NotBlank(message = "A cidade é obrigatória")
   private String cidade;
 
+  @NotBlank(message = "O estado é obrigatório")
   private UF estado;
 
   private String referencia;
+
+  public Endereco toEntity() {
+    return Endereco.builder()
+        .cep(cep)
+        .logradouro(logradouro)
+        .numero(numero)
+        .complemento(complemento)
+        .bairro(bairro)
+        .cidade(cidade)
+        .estado(estado)
+        .referencia(referencia)
+        .build();
+  }
 }

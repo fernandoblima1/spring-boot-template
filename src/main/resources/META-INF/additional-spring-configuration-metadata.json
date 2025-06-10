@@ -1,0 +1,84 @@
+{
+  "properties": [
+    {
+      "name": "allowed.origins",
+      "type": "java.lang.String",
+      "description": "Origens permitidas para acesso à API"
+    },
+    {
+      "name": "allowed.methods",
+      "type": "java.lang.String",
+      "description": "Métodos permitidos para acesso à API"
+    },
+    {
+      "name": "environment",
+      "type": "java.lang.String",
+      "description": "Ambiente de execução"
+    },
+    {
+      "name": "management.endpoints.web.exposure.include",
+      "type": "java.lang.String",
+      "description": "Endpoints expostos pelo Spring Boot Actuator"
+    },
+    {
+      "name": "management.endpoint.health.show-details",
+      "type": "java.lang.String",
+      "description": "Mostrar detalhes do endpoint de saúde"
+    },
+    {
+      "name": "management.prometheus.metrics.export.enabled",
+      "type": "java.lang.String",
+      "description": "Habilitar exportação de métricas do Prometheus"
+    },
+    {
+      "name": "management.endpoints.web.exposure.include",
+      "type": "java.lang.String",
+      "description": "Endpoints expostos pelo Spring Boot Actuator"
+    },
+    {
+      "name": "management.endpoints.tags.application",
+      "type": "java.lang.String",
+      "description": "Tags para os endpoints do Spring Boot Actuator"
+    },
+    {
+      "name": "flyway.url",
+      "type": "java.lang.String",
+      "description": "URL do banco de dados"
+    },
+    {
+      "name": "flyway.user",
+      "type": "java.lang.String",
+      "description": "Usuário do banco de dados"
+    },
+    {
+      "name": "flyway.password",
+      "type": "java.lang.String",
+      "description": "Senha do banco de dados"
+    },
+    {
+      "name": "flyway.locations",
+      "type": "java.lang.String",
+      "description": "Localizações das migrações do Flyway"
+    },
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "description": "Chave secreta do JWT"
+    },
+    {
+      "name": "jwt.expiration_time_in_millis",
+      "type": "java.lang.Integer",
+      "description": "Tempo de expiração do JWT em milissegundos"
+    },
+    {
+      "name": "jwt.refresh_token.expiration_time_in_millis",
+      "type": "java.lang.Integer",
+      "description": "Tempo de expiração do refresh token em milissegundos"
+    },
+    {
+      "name": "app.frontend.url",
+      "type": "java.lang.String",
+      "description": "URL do frontend"
+    }
+  ]
+}

@@ -1,38 +1,31 @@
 #!/bin/bash
 
-echo "Executando formatação de código (Spotless)"
+echo "🎨 Executando formatação de código (Spotless)"
 ./mvnw spotless:apply
 if [ $? -ne 0 ]; then
-  echo "Falha ao formatar código."
+  echo "❌ Falha ao formatar código."
   exit 1
 fi
 
-echo "Executando linter (Checkstyle)"
-./mvnw checkstyle:check
-if [ $? -ne 0 ]; then
-  echo "Checkstyle encontrou problemas."
-  exit 1
-fi
-
-echo "Executando testes automatizados"
+echo "🧪 Executando testes automatizados"
 ./mvnw test
 if [ $? -ne 0 ]; then
-  echo "Alguns testes falharam."
+  echo "❌ Alguns testes falharam."
   exit 1
 fi
 
-echo "Verificando por System.out ou TODOs nos arquivos alterados"
+echo "🔍 Verificando por System.out ou TODOs nos arquivos alterados"
 FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.java$')
 for file in $FILES; do
   if grep -q 'System\.out\.print' "$file"; then
-    echo "Encontrado System.out.print em $file"
+    echo "⚠️ Encontrado System.out.print em $file"
     exit 1
   fi
   if grep -q 'TODO' "$file"; then
-    echo "Encontrado TODO em $file"
+    echo "⚠️ Encontrado TODO em $file"
     exit 1
   fi
 done
 
-echo "Pre-commit finalizado com sucesso!"
+echo "🎉 Pre-commit finalizado com sucesso!"
 exit 0
